@@ -1,0 +1,39 @@
+﻿@model MvcStok.Models.Entity.TBLMUSTERILER
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div style="margin:24px">
+
+    <h3><b>CUSTOMER CREATE</b></h3>
+</div>
+<form class="form-group" method="post">
+    @*<div>
+            <label>Customer Name</label>
+            <input type="text" class="form-control" name="MUSTERIAD" />
+        </div>
+        <div>
+            <label>Customer Surname</label>
+            <input type="text" class="form-control" name="MUSTERISOYAD" />
+        </div>*@
+    <div>
+        <h5>Customer Name</h5>
+        @Html.TextBoxFor(m => m.MUSTERIAD, new { @class = "form-control", Placeholder = "Enter Name", Required = "", @maxlength = "50" })
+        @*@Html.ValidationMessageFor(m => m.MUSTERIAD, "", new { @style = "color:red" })*@
+    </div>
+    <div>
+        <h5>Customer Surname</h5>
+        @Html.TextBoxFor(m => m.MUSTERISOYAD, new { @class = "form-control", Placeholder = "Enter Surname", Required = "", @maxlength = "50" })
+        @*@Html.ValidationMessageFor(m => m.MUSTERISOYAD, "", new { @style = "color:red" })*@
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-primary" id="create">Create</button>
+    </div>
+    <script>
+
+        $('#create').click(function () {
+            alert('Adding customer is successful...');
+        });
+
+    </script>
+</form>

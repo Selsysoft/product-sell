@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<head>
+
+    <!-- Add icon library -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .btn {
+            background-color: blueviolet;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 300px;
+            width: 400px;
+        }
+
+
+            /* Darker background on mouse-over */
+            .btn:hover {
+                background-color: slateblue;
+            }
+    </style>
+    <style>
+        .about{
+            margin-top:100px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="col-md-12 text-center">
+        <button type="button" class="btn" data-toggle="modal" data-target="#Modal1">
+            <i class="fa fa-bars"> </i>
+            &nbsp;&nbsp;
+            ABOUT
+
+
+        </button>
+    </div>
+
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" style="text-align:center"> ABOUT SCREEN</h2>
+                </div>
+                <div class="main">
+
+                    <!-- main-row-one -->
+                    <!-- main-row-one -->
+                    <div class="profile-grid logo wthree" style="text-align:center">
+                        <img src="/images/selsysoft.png" alt="" width="150" height="150">
+                        <h2 style="margin-bottom:30px">Mr. Selçuk </h2>
+                        <hr />
+
+
+
+                    </div>
+                    <div style="margin-top:30px">
+
+                    </div>
+                    <h4>&emsp; A person who has just graduated from Computer Engineering, I aim to progress in line with my knowledge. As software, Java, C#, C++, Html, Css, JavaScript, PostgreSql etc. I have enough knowledge of programming languages. I am interested in Android mobile programming and Web programming. Currently I am interested in my own projects and organizations that I am developing.</h4>
+
+
+                </div>
+                <div class="about" style="text-align:center">
+                    <p> © 2020 About Page. All rights reserved | Design by <a href="https://www.linkedin.com/in/lselcukl/" target="_blank">Selçuk Türedi</a></p>
+                </div>
+            </div>
+            <!-- copyright -->
+            <!-- //copyright -->
+        </div>
+    </div>
+</body>

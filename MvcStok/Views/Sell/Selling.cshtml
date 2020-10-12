@@ -1,0 +1,53 @@
+﻿@model MvcStok.Models.Entity.TBLSATISLAR
+@{
+    ViewBag.Title = "Selling";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin-top:20px " class="col-md-12 text-center">
+
+    <h3><b>SELL</b></h3>
+</div>
+
+<div class="col-md-12 text-center">
+    <button type="button" class="btn btn-primary" style="width:400px " data-toggle="modal" data-target="#Modal1">
+        SELL PRODUCT
+    </button>
+</div>
+    
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">SELL SCREEN</h2>
+                </div>
+                <form method="post" action="/Sell/Selling">
+                    <div class="modal-body">
+                        <h5>Product Name</h5>
+                        @Html.DropDownListFor(m => m.TBLURUNLER.URUNID, (List<SelectListItem>)ViewBag.valueproduct, new { @class = "form-control" })
+                        <br />
+                        <h5>Customer Name</h5>
+                        @Html.DropDownListFor(m => m.TBLMUSTERILER.MUSTERIID, (List<SelectListItem>)ViewBag.valuecustomer, new { @class = "form-control" })
+                        <br />
+                        <h5>Peice</h5>
+                        @Html.TextBoxFor(m => m.ADET, new { @class = "form-control" })
+                        <br />
+                        <h5>Price</h5>
+                        @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control" })
+                        <br />
+                        <button type="submit" class="btn btn-success" id="create">SELL</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">CANCEL</button>
+                    </div>
+                    <script>
+
+                        $('#create').click(function () {
+                            alert('The sale was made...');
+                        });
+
+                    </script>
+
+                </form>
+            </div>
+        </div>
+    </div>
+

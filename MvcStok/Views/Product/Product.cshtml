@@ -1,0 +1,74 @@
+﻿@using MvcStok.Models.Entity
+@model List<TBLURUNLER>
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div style="margin:24px">
+
+    <h3><b>PRODUCT LIST</b></h3>
+</div>
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+            PRODUCT ID
+            </th>
+            <th>
+            PRODUCT NAME
+            </th>
+            <th>
+            PRODUCT CATEGORY
+            </th>
+            <th>
+            PRICE
+            </th>
+            <th>
+            BRAND
+            </th>
+            <th>
+            STOCK
+            </th>
+            <th>
+            DELETE
+            </th>
+            <th>
+            UPDATE
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <th>@product.URUNID</th>
+                <td>@product.URUNAD</td>
+                <td>@product.TBLKATEGORILER.KATEGORIAD</td>
+                <td>@product.FIYAT &nbsp;$</td>
+                <td>@product.MARKA</td>
+                <td>@product.STOK</td>
+                <td>@Html.ActionLink("DELETE", "Delete", new { id = product.URUNID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete?')" })</td>
+                <td><a href="/Product/ProductGet/@product.URUNID" class="btn btn-success">UPDATE</a></td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="/Product/Create/" style="margin:24px" class="btn btn-primary">
+    
+        CREATE
+        
+    </a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

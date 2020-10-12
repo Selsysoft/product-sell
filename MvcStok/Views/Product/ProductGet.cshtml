@@ -1,0 +1,43 @@
+﻿@model MvcStok.Models.Entity.TBLURUNLER
+@{
+    ViewBag.Title = "ProductGet";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin:24px">
+
+    <h3><b>PRODUCT UPDATE</b></h3>
+</div>
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+<div class="form-group">
+    @*@Html.LabelFor(m => m.URUNID)*@
+    <h5>Product Id</h5>
+    @Html.TextBoxFor(m => m.URUNID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @*@Html.LabelFor(m => m.URUNAD)*@
+    <h5>Product Name</h5>
+    @Html.TextBoxFor(m => m.URUNAD, new { @class = "form-control", Required = "", Placeholder = "Enter Name", @maxlength = "50" })
+    <br />
+    @*@Html.LabelFor(m => m.URUNKATEGORI)*@
+    <h5>Product Category</h5>
+    @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
+    @*@Html.LabelFor(m => m.FIYAT)*@
+    <h5>Price</h5>
+    @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control", Required = "", Placeholder = "Enter Price", @maxlength = "50" })
+    <br />
+    @*@Html.LabelFor(m => m.MARKA)*@
+    <h5>Brand</h5>
+    @Html.TextBoxFor(m => m.MARKA, new { @class = "form-control", Required = "", Placeholder = "Enter Brand", @maxlength = "50" })
+    <br />
+    @*@Html.LabelFor(m => m.STOK)*@
+    <h5>Stock</h5>
+    @Html.TextBoxFor(m => m.STOK, new { @class = "form-control", Required = "", Placeholder = "Enter Stock", @maxlength = "50" })
+    <br />
+</div>
+    <div>
+        <button class="btn btn-warning">Update</button>
+    </div>
+}
+

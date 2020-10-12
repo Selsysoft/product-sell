@@ -1,0 +1,55 @@
+﻿@using MvcStok.Models.Entity
+@model List<TBLMUSTERILER>
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div style="margin:24px">
+
+    <h3><b>CUSTOMER LIST</b></h3>
+</div>
+@*
+    DIFFERENT SEARCH...
+    @using (Html.BeginForm("Customer", "Customer", FormMethod.Get))
+    {
+    <p>
+        <b>Search Customer Name:</b> @Html.TextBox("p")
+        <input class="btn btn-info" type="submit" value="Search" />
+    </p>
+    }*@
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>CUSTOMER ID</th>
+            <th>CUSTOMER NAME</th>
+            <th>CUSTOMER SURMANE</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <th>@customer.MUSTERIID</th>
+                <td>@customer.MUSTERIAD</td>
+                <td>@customer.MUSTERISOYAD</td>
+                <td>@Html.ActionLink("DELETE", "Delete", new { id = customer.MUSTERIID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete?')" })</td>
+                <td><a href="/Customer/CustomerGet/@customer.MUSTERIID" class="btn btn-success">UPDATE</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Customer/Create/" style="margin:24px" class="btn btn-primary">CREATE</a>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

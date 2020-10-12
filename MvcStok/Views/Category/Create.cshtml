@@ -1,0 +1,33 @@
+﻿@model MvcStok.Models.Entity.TBLKATEGORILER
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div style="margin:24px">
+
+    <h3><b>CATEGORY CREATE</b></h3>
+</div>
+
+
+<form class="form-group" method="post">
+    @*<div>
+            <label>Category Name</label>
+            <input type="text" class="form-control" name="KATEGORIAD" />
+        </div>*@
+    <div>
+        <h5>Category Name</h5>
+        @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control", Required = "", Placeholder = "Enter Name", @maxlength = "50" })
+        @*@Html.ValidationMessageFor(m=>m.KATEGORIAD,"",new { @style="color:red"})*@
+    </div>
+
+    <div style="margin-top:20px">
+        <button class="btn btn-primary" id="create">Create</button>
+    </div>
+    <script>
+        
+            $('#create').click(function () {
+                alert('Adding category is successful...');
+            });
+        
+    </script>
+</form>

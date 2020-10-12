@@ -1,0 +1,26 @@
+﻿@model MvcStok.Models.Entity.TBLKATEGORILER
+@{
+    ViewBag.Title = "CategoryGet";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div style="margin:24px">
+
+    <h3><b>CATEGORY UPDATE</b></h3>
+</div>
+@using (Html.BeginForm("Update", "Category", FormMethod.Post))
+{
+<div class="form-group">
+    @*@Html.LabelFor(m => m.KATEGORIID)*@
+    <h5>Category Id</h5>
+    @Html.TextBoxFor(m => m.KATEGORIID, new { @class = "form-control",@readonly = "readonly" })
+    <br />
+    @*@Html.LabelFor(m => m.KATEGORIAD)*@
+    <h5>Category Name</h5>
+    @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control", Placeholder = "Enter Name", Required = "", @maxlength = "50" })
+    @Html.ValidationMessageFor(m => m.KATEGORIAD, "", new { @style = "color:red" })
+</div>
+<div>
+    <button class="btn btn-warning">Update</button>
+</div>
+}

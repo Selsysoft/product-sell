@@ -1,0 +1,52 @@
+﻿@model MvcStok.Models.Entity.TBLURUNLER
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div style="margin:24px">
+
+    <h3><b>PRODUCT CREATE</b></h3>
+</div>
+<form class="form-group" method="post">
+    <div>
+        @*
+            <label>Product Name</label>
+            <input type="text" class="form-control" name="URUNAD" />*@
+        <h5>Product Name</h5>
+        @Html.TextBoxFor(m => m.URUNAD, new { @class = "form-control", Placeholder = "Enter Name", Required = "", @maxlength = "50" })
+    </div>
+    <div>
+        <h5>Product Category</h5>
+        @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
+    </div>
+    <div>
+        @*
+            <label>Price</label>
+            <input type="text" class="form-control" name="FIYAT" />*@
+        <h5>Price</h5>
+        @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control", Placeholder = "Enter Price", Required = "", @maxlength = "50" })
+    </div>
+    <div>
+        @*<label>Brand</label>
+            <input type="text" class="form-control" name="MARKA" />*@
+        <h5>Brand</h5>
+        @Html.TextBoxFor(m => m.MARKA, new { @class = "form-control", Placeholder = "Enter Brand", Required = "", @maxlength = "50" })
+
+    </div>
+    <div>
+        @*<label>Stock</label>
+            <input type="text" class="form-control" name="STOK" />*@
+        <h5>Stock</h5>
+        @Html.TextBoxFor(m => m.STOK, new { @class = "form-control", Placeholder = "Enter Name", Required = "", @maxlength = "50" })
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-primary" id="create">Create</button>
+    </div>
+    <script>
+
+        $('#create').click(function () {
+            alert('Adding product is successful...');
+        });
+
+    </script>
+</form>
